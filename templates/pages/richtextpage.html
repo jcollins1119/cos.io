@@ -1,0 +1,19 @@
+{% extends "pages/page.html" %}
+{% block navlinks %}{% with 'news' as nav %}
+        {{ block.super }}
+    {% endwith %}{% endblock %}
+{% load staticfiles %}
+{% load mezzanine_tags %}
+
+{% block main %}{{ block.super }}
+
+        {% editable page.richtextpage.content %}
+        {{ page.richtextpage.content|richtext_filters|safe }}
+        {% endeditable %}
+        </div>
+        <div class="col-md-3 blog-sidebar" style="padding-left: 55px">
+            {% include "page/newsitem.html" %}
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -8,7 +8,7 @@ from django.conf.urls import patterns, include, url
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from mysite.main.views import (AboutBoardPageView, AboutPageView, MissionPageView, PartnersPageView,
                                ServicePageView, GetInvolvedPageView, ApsPageView, CommunitiesPageView,
-                               InvolvedParticipatesPageView, SponsorsPageView, StatsPageView, PrPageView,
+                               InvolvedParticipatesPageView, SponsorsPageView, StatsPageView,
                                PreregPageView, TeamPageView, JobsPageView, NewsPageView, OsfPageView,
                                TopPageView, JournalPageView)
 
@@ -34,7 +34,7 @@ urlpatterns += patterns('',
     url(r'^(?i)jobs$', JobsPageView.as_view(), name='jobs'),
     url(r'^(?i)news$', NewsPageView.as_view(), name='news'),
     url(r'^(?i)about$', AboutPageView.as_view(), name='about'),
-    url(r'^(?i)pr/(?P<item>.*)/$', PrPageView.as_view(), name='pr'),
+    # url(r'^(?i)pr/(?P<item>.*)/$', PrPageView.as_view(), name='pr'),
     url(r'^(?i)service$', ServicePageView.as_view(), name='service'),
     url(r'^(?i)about_team$', TeamPageView.as_view(), name='COS_Team'),
     url(r'^(?i)about_board$', AboutBoardPageView.as_view(), name ='about_board'),

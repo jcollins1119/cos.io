@@ -153,10 +153,10 @@ class PartnersPageView(generic.TemplateView):
         return context
 
 
-class PrPageView(generic.TemplateView):
-
-    def get(self, request, item):
-        return render_to_response(os.path.join('page', 'pr', item) + '.html')
+# class PrPageView(generic.TemplateView):
+#
+#     def get(self, request, item):
+#         return render_to_response(os.path.join('page', 'pr', item) + '.html')
 
 
 class PreregPageView(generic.TemplateView):
