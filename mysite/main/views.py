@@ -4,7 +4,6 @@ from django.http import Http404, HttpResponseRedirect
 from django.shortcuts import render, redirect
 from django.views import generic
 from django.template.loader import get_template
-from django.core.mail import EmailMessage
 from django.template import Context
 
 from mysite.news.models import News
@@ -53,7 +52,6 @@ class CommunitiesPageView(generic.TemplateView):
 
 def form_view(request):
     if request.method == "POST":
-        print "--------request data", request.POST
         form = ContactForm(request.POST)
         if form.is_valid():
             fname = form.cleaned_data['fname']
@@ -86,8 +84,8 @@ def form_view(request):
             #     headers = {'Reply-To': contact_email }
             # )
 
+            return HttpResponseRedirect('page/contact')
 
-            return HttpResponseRedirect('page/contact/')
         else:
             print("Form not valid")
             print(form.errors)

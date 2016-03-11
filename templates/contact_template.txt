@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Contact Template</title>
+</head>
+<body>
+First Name: {{ fname }}
+
+Last Name: {{ lname }}
+
+Email: {{ email }}
+
+Organization: {{ org }}
+
+Title: {{ title }}
+
+Checkboxes:
+
+
+Message: {{ message }}
+
+</body>
+</html>
