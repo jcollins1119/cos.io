@@ -7,7 +7,7 @@ from django.conf.urls.i18n import i18n_patterns
 from django.conf.urls import patterns, include, url
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from mysite.main.views import (AboutBoardPageView, AboutPageView, MissionPageView, PartnersPageView,
-                               ServicePageView, ContactPageView, ApsPageView, CommunitiesPageView,
+                               ServicePageView, form_view, GetInvolvedPageView, ApsPageView, CommunitiesPageView,
                                InvolvedParticipatesPageView, SponsorsPageView, StatsPageView, PrPageView,
                                PreregPageView, PreRegJournalsPageView, PreRegListedPageView, TeamPageView,
                                JobsPageView, NewsPageView, OsfPageView, TopPageView, JournalPageView)
@@ -36,7 +36,7 @@ urlpatterns += patterns('',
     url(r'^(?i)about$', AboutPageView.as_view(), name='about'),
     url(r'^(?i)pr/(?P<item>.*)/$', PrPageView.as_view(), name='pr'),
     url(r'^(?i)service$', ServicePageView.as_view(), name='service'),
-    url(r'^(?i)contact$', ContactPageView.as_view(), name='contact'),
+    url(r'^(?i)contact$', form_view, name='contact'),
     url(r'^(?i)about_team$', TeamPageView.as_view(), name='COS_Team'),
     url(r'^(?i)about_board$', AboutBoardPageView.as_view(), name ='about_board'),
     url(r'^(?i)communities$', CommunitiesPageView.as_view(), name='communities'),
