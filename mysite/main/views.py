@@ -1,6 +1,6 @@
 import os
 
-from django.http import Http404
+from django.http import Http404, HttpResponseRedirect
 from django.shortcuts import render_to_response, redirect
 from django.views import generic
 
@@ -10,6 +10,7 @@ from mysite.main.models import Pages
 from mysite.jobs.models import Section
 from mysite.ambassadors.models import Ambassadors
 from mysite.settings import GOOGLE_APPLICATION_REDIRECT_URI, GOOGLE_REDIRECT_SESSION_VAR
+from mysite.forms import ContactForm
 
 
 class AboutPageView(generic.TemplateView):
@@ -62,7 +63,7 @@ class ContactPageView(generic.TemplateView):
         else:
             form = ContactForm()
 
-        return render(request, 'contact.html', {'form': form} )
+        return render_to_response(request, 'page/contact.html', {'form': form} )
 
 
 class GetInvolvedPageView(generic.TemplateView):
