@@ -1,8 +1,11 @@
 import os
 
 from django.http import Http404, HttpResponseRedirect
-from django.shortcuts import render_to_response, redirect
+from django.shortcuts import render, redirect
 from django.views import generic
+from django.template.loader import get_template
+from django.core.mail import EmailMessage
+from django.template import Context
 
 from mysite.news.models import News
 from mysite.team.models import Team
@@ -11,7 +14,6 @@ from mysite.jobs.models import Section
 from mysite.ambassadors.models import Ambassadors
 from mysite.settings import GOOGLE_APPLICATION_REDIRECT_URI, GOOGLE_REDIRECT_SESSION_VAR
 from mysite.forms import ContactForm
-
 
 class AboutPageView(generic.TemplateView):
     template_name = 'page/about.html'
