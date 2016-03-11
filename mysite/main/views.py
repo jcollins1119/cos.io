@@ -53,6 +53,7 @@ class CommunitiesPageView(generic.TemplateView):
 
 def form_view(request):
     if request.method == "POST":
+        print "--------request data", request.POST
         form = ContactForm(request.POST)
         if form.is_valid():
             fname = form.cleaned_data['fname']
@@ -74,11 +75,22 @@ def form_view(request):
                 'checkbox': checkbox,
                 'message': message,
             })
-            print(fname, lname, email, org, title, checkbox, message)
+            content = template.render(context)
 
-            return HttpResponseRedirect('page/contact_submit/')
+
+            # email = EmailMessage(
+            #     "New contact form submission",
+            #     content,
+            #     "Your website" +'',
+            #     ['youremail@gmail.com'],
+            #     headers = {'Reply-To': contact_email }
+            # )
+
+
+            return HttpResponseRedirect('page/contact/')
         else:
             print("Form not valid")
+            print(form.errors)
     else:
             form = ContactForm()
     return render(request, 'page/contact.html', {'form': form})
