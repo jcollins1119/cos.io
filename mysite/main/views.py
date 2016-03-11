@@ -59,22 +59,22 @@ def form_view(request):
             email = form.cleaned_data['email']
             org = form.cleaned_data['org']
             title = form.cleaned_data['title']
-            checkbox = []
-            for i in range(9):
-                checkbox[i] = form.cleaned_data['checkbox[i]']
+            # checkbox1 = []
+            # for i in range(9):
+            #     checkbox1[i] = form.cleaned_data.getlist['checkbox[i]']
             message = form.cleaned_data['message']
-            temmplate = get_template('contact_template.txt')
+            template = get_template('contact_template.txt')
             context = Context({
                 'fname': fname,
                 'lname': lname,
                 'email': email,
                 'org': org,
                 'title': title,
-                'checkbox': checkbox,
+                # 'checkbox': checkbox1,
                 'message': message,
             })
             content = template.render(context)
-
+            print content
 
             # email = EmailMessage(
             #     "New contact form submission",
