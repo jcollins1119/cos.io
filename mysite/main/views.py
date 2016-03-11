@@ -48,6 +48,23 @@ class CommunitiesPageView(generic.TemplateView):
         return context
 
 
+class ContactPageView(generic.TemplateView):
+    template_name ='page/contact.html'
+
+    def get_form_data(request):
+        if request.method == 'POST':
+
+            form = ContactForm(request.POST)
+            if form.is_valid():
+                return HttpResponseRedirect('/form_submission/')
+            # Link above is a thank you for submitting your information page
+
+        else:
+            form = ContactForm()
+
+        return render(request, 'contact.html', {'form': form} )
+
+
 class GetInvolvedPageView(generic.TemplateView):
     template_name = 'page/get_involved.html'
 
